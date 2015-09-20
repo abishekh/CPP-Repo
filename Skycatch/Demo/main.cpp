@@ -4,11 +4,9 @@
 #include<fstream>
 #include<math.h>
 
-
+using namespace std;
 
 int main(){
-
-
     PIDControl mycontroller;
     plant robertplant;
 
@@ -16,50 +14,36 @@ int main(){
     mycontroller.setKP(10);
     mycontroller.setKD(13);
     mycontroller.setKI(2.23);
-
-
     double duration;
     double count=0.0;
     // mycontroller.setLimit(-10000,10000);
-    std::cout<<"Set Duration(seconds)of simulation.\n"<<std::endl;
-
-    std::cin>>duration;
-    std::cout<<std::endl;
+    cout<<"Set Duration(seconds)of simulation.\n"<<endl;
+    cin>>duration;
+    cout<<endl;
     // duration*=1000; //convert to milis
+    ofstream output("output.csv");
 
-
-
-    std::ofstream output("output.csv");
-
-    output<<" Error "<<" , "<<"   Control   "<<"  ,  "<<"   Feedback   "<<std::endl;
+    output<<" Error "<<" , "<<"   Control   "<<"  ,  "<<"   Feedback   "<<endl;
 
     while(count<duration)
     {
-
-        // float npoints=((count)/(duration/count));
-
+     // float npoints=((count)/(duration/count));
         mycontroller.setDesired(10* sin(2* 3.14 * count) );  //setting the desired wave
 
         //Do simulation
-        //  mycontroller.spin();
-
         mycontroller.Y= robertplant.update(mycontroller.spin());
         mycontroller.setNFB(mycontroller.Y);
 
-
-
-        // DEBUGGING
+         // DEBUGGING
         //std::cout<<mycontroller.desired<<"  "<< robertplant.getState() <<std::endl;
 
         //Write to file
-        output<<mycontroller.Error<<"  ,  "<<mycontroller.getU()<<"  ,  "<<mycontroller.getNFB()<<std::endl;
-
+        output<<mycontroller.Error<<"  ,  "<<mycontroller.getU()<<"  ,  "<<mycontroller.getNFB()<<endl;
         count+=mycontroller.deltaT;
     }
 
     output.close();
-
-    std::cout<<"Finished Simulation"<<std::endl;
+    cout<<"Finished Simulation"<<endl;
     return 0;
 
 }

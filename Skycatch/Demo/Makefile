@@ -274,7 +274,8 @@ compiler_clean:
 
 ####### Compile
 
-main.o: main.cpp 
+main.o: main.cpp ../PIDControl/pidcontrol.h \
+		../PIDControl/plant.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 ####### Install

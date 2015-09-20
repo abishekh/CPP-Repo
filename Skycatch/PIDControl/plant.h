@@ -5,7 +5,6 @@ class plant
 {
 public:
     plant();
-
     double update(double u);
     void  setA(double val);
     void  setB(double val);
@@ -13,12 +12,7 @@ public:
     double u,xd;
 
 private:
-
     double x,t,deltaT,A,B;
-
-
-
-
 };
 
 #endif // PLANT_H

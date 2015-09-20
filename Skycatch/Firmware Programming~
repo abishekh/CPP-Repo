@@ -1,0 +1,17 @@
+1. Firmware programming is about designing instructions that control or define the behavior of a hardware system.
+
+2. While programming firmware it is necessary to have knowdlge of low level memory - keeping in mind the kind of memory banks you are writing firmware for. Example : EEPROM, ROM, etc. This helps in informing the programmer about the expected behavior of the memory when LOADING, STORING, SHIFTING, ACCUMULATING operations are performed.
+
+3. Emulators are a key tool used to debug and verify firmware behavior when the specific hardware system is not available at hand. Emulators are a cheap and easy way of testing out rough capabilities and compaibilities of a system. Choosing the right emulator for the system you are programming is necessary - since you want to mimic the actual system as closely as possible.
+
+4. Emulators should NOT be considered as a replacement to testing on actual physical hardware. Testing on actual hardware is important because it can bring up many previously unseen issues like timing delays of instructions and response latency.
+
+5. When testing on an actual device - firmware programmers require bootloaders that are compatible with the device in concern. Just like choosing the right emulator, choosing the right bootloader is important.
+
+6. Unlike regular S/W programming most firmware reside on devices that will never be updated or reprogrammed at the firmware level during their lifetime. This is important to keep in mind because spotting bugs and discrepencies during the programming phase are easier than pushing a software update.
+
+7. Firmware needs to be designed such that it runs consistently, dependably and efficiently since there is very little maintainence that can be provided once the product has shipped.
+
+
+
+
