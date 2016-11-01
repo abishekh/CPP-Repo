@@ -1,0 +1,15 @@
+Author: Abishek Hariaharan
+Email: ahariharan@me.com
+
+
+
+C Style Message Validator using the regex.h header file.
+
+Build instructions :
+1. Navigate to 'message_validator'
+2. Execute 'make' from the terminal. 
+
+
+**Ignore the '.pro' & '.pro.user' files - These have been left for the option to import the projects into 'Qt Creator' for better walkthrough and visualization of the code.
+
+
